@@ -55,6 +55,11 @@ body {
 .contents {
     margin-top: 50px;
     padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 p {
@@ -68,4 +73,12 @@ p {
 
 .lobster {
     font-size: 20vh;
+    display: inline-block;
+    width: fit-content;
+
+    transition: transform 1s ease-in-out;
+}
+
+.lobster:hover {
+    transform: rotate(360deg);
 }
