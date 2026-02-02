@@ -10,12 +10,23 @@ body {
 
     margin: 0px;
     padding: 0px;
+
+    background-image: url('/assets/paper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
 }
 
 .title {
     background-color: #85ac80;
     min-height: 16vh;
     width: 100vw;
+
+    background-image: url('/assets/decal.jpg');
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    border-bottom: 10px solid #ffffff;
 }
 
 .title h1 {
@@ -28,6 +39,10 @@ body {
 }
 
 @media (max-width: 700px) {
+    body {
+        background-size: auto 100vh;
+    }
+
     .title {
         min-height: 10vh;
     }
@@ -40,7 +55,6 @@ body {
 .contents {
     margin-top: 50px;
     padding: 10px;
-    
 }
 
 p {
