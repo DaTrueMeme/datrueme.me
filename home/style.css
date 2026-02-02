@@ -1,0 +1,42 @@
+body {
+    background-color: #5e8c58;
+    color: white;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.title {
+    background-color: #85ac80;
+    min-height: 20vh;
+    width: 100vw;
+}
+
+.title h1 {
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+    font-size: 100px;
+
+    text-shadow: 0px 1px 0px #5e8c58,0px 2px 0px #5e8c58,0px 3px 0px #5e8c58,0px 4px 0px #5e8c58,0px 5px 0px #5e8c58,0px 6px 0px #5e8c58,0px 7px 0px #5e8c58,0px 8px 0px #5e8c58,0px 9px 0px #5e8c58,0px 10px 0px #5e8c58;
+}
+
+.contents {
+    margin-top: 50px;
+    padding: 10px;
+    
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.emoji {
+    font-size: 25px;
+}
+
+.lobster {
+    font-size: 20vh;
+}
