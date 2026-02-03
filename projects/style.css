@@ -102,61 +102,57 @@ nav li:hover .nav-title {
     display: none;
 }
 
-.title {
-    background-color: #85ac80;
-    min-height: 16vh;
-    width: 100%;
 
-    background-image: url('/assets/decal.jpg');
-    background-size: cover;
-    background-blend-mode: multiply;
-
-    border-bottom: 10px solid #ffffff;
-}
-
-.title h1 {
-    margin: 0px;
-    padding: 10px;
-    text-align: center;
-    font-size: 100px;
-
-    text-shadow: 0px 1px 0px #5e8c58,0px 2px 0px #5e8c58,0px 3px 0px #5e8c58,0px 4px 0px #5e8c58,0px 5px 0px #5e8c58,0px 6px 0px #5e8c58,0px 7px 0px #5e8c58,0px 8px 0px #5e8c58,0px 9px 0px #5e8c58,0px 10px 0px #5e8c58;
-}
-
-.contents {
-    margin-top: 50px;
-    padding: 10px;
+.projects-container {
+    padding: 50px 50px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    gap: 10px;
+    gap: 50px;
 }
 
-p {
+.shadow {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.project img {
+    width: 50vh;
+}
+
+.project .content {
+    padding: 5vh;
+}
+
+.project p, h1 {
     text-align: center;
-    font-size: 25px;
+    width: 50vh;
+    font-size: 20px;
 }
 
-.emoji {
-    font-size: 25px;
+.project a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
 }
 
-.lobster {
-    font-size: 20vh;
-    display: inline-block;
-    width: fit-content;
+.project h1 {
+    font-size: 50px;
+    text-align: center;
 
-    transition: transform 1s ease-in-out;
+    text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000,0px 6px 0px #090000;
 }
 
-.lobster:hover {
-    transform: rotate(180deg);
-}
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
     .hideOnMobile {
         display: none;
     }
@@ -165,16 +161,20 @@ p {
         display: block;
     }
 
-    body {
-        background-size: auto 100vh;
+    .project {
+        flex-direction: column;
     }
 
-    .title {
-        min-height: 10vh;
+    .project p, h1 {
+        width: 40vh;
     }
 
-    .title h1 {
-        font-size: 50px;
+    .project h1 {
+        text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000;
+    }
+
+    .project img {
+        width: 40vh;
     }
 }
 
