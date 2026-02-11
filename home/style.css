@@ -1,3 +1,17 @@
+:root {
+    --primary-color: #85ac80;
+    --bg-color: #5e8c58;
+    --bg-hover-color: #85ac80;
+    --base-color: #ffffff;
+}
+
+.darkmode {
+    --primary-color: #85ac80;
+    --bg-color: #121212;
+    --bg-hover-color: #282828;
+    --base-color: #282828;
+}
+
 @font-face {
     font-family: 'Comic Sans MS';
     src: url('/assets/fonts/comicsans.ttf') format('truetype');
@@ -9,7 +23,7 @@
 }
 
 body {
-    background-color: #5e8c58;
+    background-color: var(--bg-color);
     color: white;
     font-family: 'Comic Sans MS';
 
@@ -22,7 +36,8 @@ body {
 }
 
 nav {
-    background-color: #85ac80;
+    background-color: var(--bg-color);
+    position: relative;
 }
 
 nav ul {
@@ -74,6 +89,43 @@ nav li:hover .nav-title {
     margin-left: 8px;
 }
 
+#theme-switch {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    margin: 0;
+    padding: 0;
+    border-radius: 100vh;
+    background-color: var(--bg-color);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-switch:hover {
+    cursor: pointer;
+    background-color: var(--bg-hover-color);
+}
+
+#theme-switch p:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch p:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch p:last-child {
+    display: block;
+}
+
+.theme {
+    font-size: 16px;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -81,7 +133,7 @@ nav li:hover .nav-title {
     height: 100vh;
     width: 250px;
     z-index: 999;
-    background-color: #85ac8050;
+    background-color: var(--primary-color)50;
     backdrop-filter: blur(10px);
     box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
     display: none;
@@ -103,7 +155,7 @@ nav li:hover .nav-title {
 }
 
 .title {
-    background-color: #85ac80;
+    background-color: var(--primary-color);
     min-height: 16vh;
     width: 100%;
 
@@ -111,7 +163,7 @@ nav li:hover .nav-title {
     background-size: cover;
     background-blend-mode: multiply;
 
-    border-bottom: 10px solid #ffffff;
+    border-bottom: 10px solid var(--base-color);
 }
 
 .title h1 {
@@ -120,7 +172,7 @@ nav li:hover .nav-title {
     text-align: center;
     font-size: 100px;
 
-    text-shadow: 0px 1px 0px #5e8c58,0px 2px 0px #5e8c58,0px 3px 0px #5e8c58,0px 4px 0px #5e8c58,0px 5px 0px #5e8c58,0px 6px 0px #5e8c58,0px 7px 0px #5e8c58,0px 8px 0px #5e8c58,0px 9px 0px #5e8c58,0px 10px 0px #5e8c58;
+    text-shadow: 0px 1px 0px var(--bg-color),0px 2px 0px var(--bg-color),0px 3px 0px var(--bg-color),0px 4px 0px var(--bg-color),0px 5px 0px var(--bg-color),0px 6px 0px var(--bg-color),0px 7px 0px var(--bg-color),0px 8px 0px var(--bg-color),0px 9px 0px var(--bg-color),0px 10px 0px var(--bg-color);
 }
 
 .contents {
