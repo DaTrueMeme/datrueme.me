@@ -3,6 +3,7 @@
     --bg-color: #5e8c58;
     --bg-hover-color: #85ac80;
     --base-color: #ffffff;
+    --shadow-color: #00000040;
 }
 
 .darkmode {
@@ -10,6 +11,7 @@
     --bg-color: #121212;
     --bg-hover-color: #282828;
     --base-color: #282828;
+    --shadow-color: #ffffff10;
 }
 
 @font-face {
@@ -135,7 +137,7 @@ nav li:hover .nav-title {
     z-index: 999;
     background-color: var(--primary-color)50;
     backdrop-filter: blur(10px);
-    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 0px 10px var(--shadow-color);
     display: none;
     flex-direction: column;
     align-items: flex-start;

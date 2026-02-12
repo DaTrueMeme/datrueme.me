@@ -1,0 +1,11 @@
+[
+    {
+        "version": "12a",
+        "date": "02-11-26",
+        "changes": [
+            "Added \"Interests\" page",
+            "Added \"Updates\" page",
+            "Made navigation system way better"
+        ]
+    }
+]

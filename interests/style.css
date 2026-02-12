@@ -156,55 +156,64 @@ nav li:hover .nav-title {
     display: none;
 }
 
-
-.projects-container {
-    padding: 50px 50px;
-
+.content {
+    padding-top: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 50px;
-}
-
-.shadow {
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-.project {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row;
+    justify-content: center;
 }
 
-.project img {
-    width: 50vh;
+.carousel {
+    margin: 0px auto;
+    width: 100%;
+    height: 20em;
+    display: flex;
+    overflow-x: auto;
+}
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
-.project .content {
-    padding: 5vh;
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding-right: 1em;
+
+    animation: spin 25s infinite linear;
 }
 
-.project p, h1 {
+.card {
+    flex: 0 0 5em;
+    height: 3em;
+    padding: 1em;
+    font-size: 5rem;
+    border-radius: .2em;
     text-align: center;
-    width: 50vh;
-    font-size: 0px;
+    align-content: center;
 }
 
-.project a {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
+.card img {
+    width: 100%;
+    box-shadow: 5px 10px 10px var(--shadow-color);
+    transition: transform 0.2s ease-in-out;
 }
 
-.project h1 {
-    font-size: 50px;
+.card img:hover {
+    transform: scale(1.25);
+}
+
+.note {
     text-align: center;
-
-    text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000,0px 6px 0px #090000;
+    font-size: 12px;
 }
 
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
+}
 
 @media (max-width: 950px) {
     .hideOnMobile {
@@ -215,20 +224,8 @@ nav li:hover .nav-title {
         display: block;
     }
 
-    .project {
-        flex-direction: column;
-    }
-
-    .project p, h1 {
-        width: 40vh;
-    }
-
-    .project h1 {
-        text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000;
-    }
-
-    .project img {
-        width: 40vh;
+    .card {
+        font-size: 3em;
     }
 }
 

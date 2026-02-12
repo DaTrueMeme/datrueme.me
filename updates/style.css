@@ -156,55 +156,47 @@ nav li:hover .nav-title {
     display: none;
 }
 
-
-.projects-container {
-    padding: 50px 50px;
+#update-log {
+    padding: 20px;
+    text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 50px;
 }
 
-.shadow {
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-}
-
-.project {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-.project img {
-    width: 50vh;
-}
-
-.project .content {
-    padding: 5vh;
-}
-
-.project p, h1 {
-    text-align: center;
-    width: 50vh;
-    font-size: 0px;
-}
-
-.project a {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-}
-
-.project h1 {
+#update-log h1 {
+    margin-bottom: 20px;
     font-size: 50px;
-    text-align: center;
-
-    text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000,0px 6px 0px #090000;
 }
 
+.update {
+    background-color: var(--bg-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    transition: transform 0.2s ease;
+}
+
+.update:hover {
+    transform: scale(1.1);
+    cursor: default;
+}
+
+.update h2 {
+    font-size: 50px;
+}
+
+.update ul {
+    list-style: none;
+}
+
+.update li {
+    font-size: 25px;
+    text-align: left;
+}
 
 @media (max-width: 950px) {
     .hideOnMobile {
@@ -215,20 +207,12 @@ nav li:hover .nav-title {
         display: block;
     }
 
-    .project {
-        flex-direction: column;
+    #update-log h1 {
+        font-size: 40px;
     }
 
-    .project p, h1 {
-        width: 40vh;
-    }
-
-    .project h1 {
-        text-shadow: 0px 1px 0px #090000,0px 2px 0px #090000,0px 3px 0px #090000,0px 4px 0px #090000,0px 5px 0px #090000;
-    }
-
-    .project img {
-        width: 40vh;
+    .update li {
+        font-size: 15px;
     }
 }
 

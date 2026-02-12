@@ -6,25 +6,11 @@
     <title>datrueme.me > Projects</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/assets/datruememe face.png" type="image/x-icon">
-    <script type="text/javascript" src="darkmode.js" defer></script>
+    <script src="/scripts/nav.js" defer></script>
+    <script type="text/javascript">window.onload = function() {const script = document.createElement('script');script.src = 'darkmode.js';script.defer = true;document.body.appendChild(script);}</script>
 </head>
 <body>
-    <nav>
-        <ul class="sidebar">
-            <li onclick=hideSidebar()><a href="#">❌ Close</a></li>
-            <li><a href="/home">🏠 Home</a></li>
-            <li><a href="/projects">👷 Projects</a></li>
-        </ul>
-        <ul>
-            <button id="theme-switch">
-                <p class="theme">🌙</p>
-                <p class="theme">☀️</p>
-            </button>
-            <li class="menu-button" onclick=showSidebar()><a href="#">📃 Navigation</a></li>
-            <li class="hideOnMobile"><a href="/home">🏠<span class="nav-title">Home</span></a></li>
-            <li class="hideOnMobile"><a href="/projects">👷<span class="nav-title">Projects</span></a></li>
-        </ul>
-    </nav>
+    <div id="nav-container"></div>
 
     <div class="projects-container">
         <div class="project">
