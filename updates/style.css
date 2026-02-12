@@ -180,6 +180,11 @@ nav li:hover .nav-title {
     transition: transform 0.2s ease;
 }
 
+.update.latest {
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 10px var(--shadow-color);
+}
+
 .update:hover {
     transform: scale(1.1);
     cursor: default;

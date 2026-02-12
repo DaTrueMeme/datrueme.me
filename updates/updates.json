@@ -1,5 +1,14 @@
 [
     {
+        "version": "12b",
+        "date": "02-11-26",
+        "changes": [
+            "Fixed theme mode event listener null reference error",
+            "Raised scroll speed of gallery for mobile users",
+            "Added highlight for the latest update"
+        ]
+    },
+    {
         "version": "12a",
         "date": "02-11-26",
         "changes": [

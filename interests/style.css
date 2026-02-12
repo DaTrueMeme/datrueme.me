@@ -224,6 +224,10 @@ nav li:hover .nav-title {
         display: block;
     }
 
+    .group {
+        animation: spin 10s infinite linear;
+    }
+
     .card {
         font-size: 3em;
     }
