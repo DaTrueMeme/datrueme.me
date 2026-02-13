@@ -91,6 +91,14 @@ nav li:hover .nav-title {
     margin-left: 8px;
 }
 
+nav .update-button {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+}
+
 #theme-switch {
     position: absolute;
     left: 10px;

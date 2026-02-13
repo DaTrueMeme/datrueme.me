@@ -1,5 +1,15 @@
 [
     {
+        "version": "13a",
+        "date": "02-12-26",
+        "changes": [
+            "Update WIP page to the new format",
+            "Moved the Update Log icon next to the Theme Switcher",
+            "Resized H3VR game cover",
+            "Added more sections to the interests page"
+        ]
+    },
+    {
         "version": "12b",
         "date": "02-11-26",
         "changes": [

@@ -6,20 +6,11 @@
     <title>...trueme.me > Work In Progress</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/assets/datruememe face.png" type="image/x-icon">
+    <script src="/scripts/nav.js" defer></script>
+    <script src="darkmode.js" defer></script>
 </head>
 <body>
-    <nav>
-        <ul class="sidebar">
-            <li onclick=hideSidebar()><a href="#">❌ Close</a></li>
-            <li><a href="/home">🏠 Home</a></li>
-            <li><a href="/projects">👷 Projects</a></li>
-        </ul>
-        <ul>
-            <li class="menu-button" onclick=showSidebar()><a href="#">📃 Navigation</a></li>
-            <li class="hideOnMobile"><a href="/home">🏠<span class="nav-title">Home</span></a></li>
-            <li class="hideOnMobile"><a href="/projects">👷<span class="nav-title">Projects</span></a></li>
-        </ul>
-    </nav>
+    <div id="nav-container"></div>
 
     <div class="content">
         <div class="wip">

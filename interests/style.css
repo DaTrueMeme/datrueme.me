@@ -91,6 +91,14 @@ nav li:hover .nav-title {
     margin-left: 8px;
 }
 
+nav .update-button {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+}
+
 #theme-switch {
     position: absolute;
     left: 10px;
@@ -165,7 +173,7 @@ nav li:hover .nav-title {
 }
 
 .carousel {
-    margin: 0px auto;
+    margin: 0px auto 15px;
     width: 100%;
     height: 20em;
     display: flex;
@@ -185,6 +193,11 @@ nav li:hover .nav-title {
     animation: spin 25s infinite linear;
 }
 
+.group.dontmove {
+    animation: none;
+    margin: 0 auto;
+}
+
 .card {
     flex: 0 0 5em;
     height: 3em;
@@ -195,14 +208,23 @@ nav li:hover .nav-title {
     align-content: center;
 }
 
+.card.square {
+    font-size: 3rem;
+    height: 5em;
+}
+
 .card img {
     width: 100%;
     box-shadow: 5px 10px 10px var(--shadow-color);
     transition: transform 0.2s ease-in-out;
 }
 
+.card.noshadow img {
+    box-shadow: none;
+}
+
 .card img:hover {
-    transform: scale(1.25);
+    transform: scale(1.15);
 }
 
 .note {
@@ -230,6 +252,11 @@ nav li:hover .nav-title {
 
     .card {
         font-size: 3em;
+    }
+
+    .card.square {
+        font-size: 2rem;
+        height: 5em;
     }
 }
 
