@@ -1,0 +1,110 @@
+main {
+    grid-area: main;
+    border-bottom: 4px solid #40319b;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    background-color: black;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 63%,
+        0 84%
+    );
+}
+
+.video-container video {
+    position: absolute;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    filter: blur(5px);
+    transform: scale(2) translateX(-25%);
+    transform-origin: center center;
+}
+
+.profile-card {
+    position: absolute;
+    z-index: 5;
+
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: min(900px, 90%);
+    height: 400px;
+
+    background-color: #8aa1ff;
+    background-image: url("/assets/background.png");
+    background-size: 65% auto;
+    filter: hue-rotate(110deg);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 4px solid #40319b75;
+    border-radius: 100px 100px 0 0;
+}
+.profile-card img {
+    filter: hue-rotate(-110deg);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transform: translateY(-160%);
+}
+.profile-card .profile-card-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-card .profile-card-text h1 {
+    margin-top: 0.5em;
+    font-size: 6em;
+    font-weight: 900;
+    font-family:'Superchibby';
+    text-shadow: 0px 8px 0px #000;
+}
+.profile-card-link {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+.profile-card-link svg {
+    width: 1.5em;
+    display: flex;
+}
+.profile-card-link a {
+    color: rgb(201, 201, 201);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        background-size: 100% auto;
+    }
+    .profile-card {
+        top: 70%;
+        border-radius: 50px 50px 0 0;
+        background-size: 100% auto;
+    }
+    .profile-card img {
+        width: 125px;
+        height: 125px;
+        transform: translateY(-180%);
+    }
+    .profile-card .profile-card-text h1 {
+        font-size: 4em;
+    }
+}
