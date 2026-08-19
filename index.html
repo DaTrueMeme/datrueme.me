@@ -5,48 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/assets/datruememe.png">
-    <script src="script.js"></script>
-    <script src="crt.js" defer></script>
+    <script src="terminal-typewriter.js" defer></script>
     <title>datrueme.me</title>
 </head>
 <body>
-    <canvas id="crt-canvas"></canvas>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <filter id="crt-chromatic" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0" result="red"/>
+            <feOffset in="red" dx="-1.5" dy="0" result="redOff"/>
+
+            <feColorMatrix type="matrix" in="SourceGraphic"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0" result="green"/>
+
+            <feColorMatrix type="matrix" in="SourceGraphic"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0" result="blue"/>
+            <feOffset in="blue" dx="1.5" dy="0" result="blueOff"/>
+
+            <feBlend in="redOff" in2="green" mode="screen" result="rg"/>
+            <feBlend in="rg" in2="blueOff" mode="screen"/>
+        </filter>
+    </svg>
     <div class="crt-vignette"></div>
     <div class="terminal-wrap">
-    <div class="terminal">
-        <div class="command">
-            <span>C:\Users\admin></span>
-            <p>ssh datruememe@123.456.7.890</p>
-        </div>
-        <div class="message">
-            Welcome to my root website.<br>
-            Here you can find a list of things I've built, and some of my other experiments.
-        </div>
-        <div class="command">
-            <span class="root-user">admin:~$</span>
-            <p>ls projects/</p>
-        </div>
-        <div class="message">
-            <ul class="projects">
-                <li class="project"><a href="https://upload.datrueme.me" target="_blank">Send Me Your Footage</a>/</li>
-                <li class="project"><a href="https://www.companyjig.com" target="_blank">Company Jig</a>/</li>
-            </ul>
-        </div>
-        <div class="command">
-            <span class="root-user">admin:~$</span>
-            <p>cat socials.txt</p>
-        </div>
-        <div class="message socials">
-            <a href="https://github.com/DaTrueMeme" target="_blank">github</a>
-            <a href="https://www.youtube.com/@DaTrueAlexDM" target="_blank">youtube</a>
-            <a href="https://steamcommunity.com/id/DaTrueMeme" target="_blank">steam</a>
-            <a href="https://soundcloud.com/datruealexdm" target="_blank">soundcloud</a>
-        </div>
-        <div class="command">
-            <span class="root-user">admin:~$</span>
-            <span class="cursor">_</span>
+        <div class="terminal" id="terminal">
+            <div class="command">
+                <span>C:\Users\admin></span>
+                <p>ssh datruememe@123.456.7.890</p>
+            </div>
+            <div class="message">
+                Welcome to my root website.
+            </div>
+            <div class="message">
+                Here you can find a list of things I've built, and some of my other experiments.
+            </div>
+            <div class="command">
+                <span class="root-user">admin:~$</span>
+                <p>ls projects/</p>
+            </div>
+            <div class="message">
+                <ul class="projects">
+                    <li class="project"><a href="https://upload.datrueme.me" target="_blank">Send Me Your Footage</a>/</li>
+                    <li class="project"><a href="https://www.companyjig.com" target="_blank">Company Jig</a>/</li>
+                </ul>
+            </div>
+            <div class="command">
+                <span class="root-user">admin:~$</span>
+                <p>cat socials.txt</p>
+            </div>
+            <div class="message socials">
+                <a href="https://github.com/DaTrueMeme" target="_blank">github</a>
+                <a href="https://www.youtube.com/@DaTrueAlexDM" target="_blank">youtube</a>
+                <a href="https://steamcommunity.com/id/DaTrueMeme" target="_blank">steam</a>
+                <a href="https://soundcloud.com/datruealexdm" target="_blank">soundcloud</a>
+            </div>
+            <div class="command">
+                <span class="root-user">admin:~$</span>
+                <span class="cursor">_</span>
+            </div>
         </div>
     </div>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const soundFiles = [
+                'sounds/typing/type1.mp3',
+                'sounds/typing/type2.mp3',
+                'sounds/typing/type3.mp3',
+                'sounds/typing/type4.mp3',
+                'sounds/typing/type5.mp3',
+                'sounds/typing/type6.mp3',
+                'sounds/typing/type7.mp3',
+                'sounds/typing/type8.mp3',
+                'sounds/typing/type9.mp3',
+                'sounds/typing/type10.mp3',
+            ];
+            const soundVolume = 0.2;
+            const minSoundGap = 10;
+            const maxConcurrent = 10;
+            let lastPlayTime = 0;
+            const activeAudio = [];
+
+            function playRandomTypeSound() {
+                if (!soundFiles.length) return;
+
+                const now = performance.now();
+                if (now - lastPlayTime < minSoundGap) return;
+                lastPlayTime = now;
+
+                if (activeAudio.length >= maxConcurrent) {
+                    const oldest = activeAudio.shift();
+                    oldest.pause();
+                }
+
+                const src = soundFiles[Math.floor(Math.random() * soundFiles.length)];
+                const audio = new Audio(src);
+                audio.volume = soundVolume;
+                audio.addEventListener('ended', () => {
+                    const idx = activeAudio.indexOf(audio);
+                    if (idx !== -1) activeAudio.splice(idx, 1);
+                });
+                activeAudio.push(audio);
+
+                audio.play().catch(() => {});
+            }
+
+            const newLineSoundFile = 'sounds/beep.mp3';
+            const newLineVolume = 0.4;
+
+            function playNewLineSound() {
+                const audio = new Audio(newLineSoundFile);
+                audio.volume = newLineVolume;
+                audio.play().catch(() => {});
+            }
+
+            const terminal = document.getElementById('terminal');
+            const controls = typeOutDOM(terminal, {
+                speed: 64,
+                lineDelay: 400,
+                messageDelay: 800,
+                onChar: (ch) => {
+                    if (ch.trim() === '') return;
+                    playRandomTypeSound();
+                },
+                onLine: playNewLineSound,
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' || e.key === ' ') {
+                    e.preventDefault();
+                    controls.skip();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

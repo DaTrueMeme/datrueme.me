@@ -18,10 +18,7 @@ body {
 .terminal-wrap {
     perspective: 700px;
     perspective-origin: 50% 50%;
-}
-
-.terminal-wrap.crt-source-hidden {
-    visibility: hidden;
+    filter: url(#crt-chromatic);
 }
 
 .terminal {
@@ -59,18 +56,6 @@ body::after {
         rgba(0, 0, 0, 0) 55%,
         rgba(0, 0, 0, 0.55) 100%
     );
-}
-
-#crt-canvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9997;
-    mix-blend-mode: normal;
-    opacity: 1;
-    image-rendering: pixelated;
 }
 
 @keyframes crt-flicker {
@@ -136,5 +121,33 @@ a {
     body {
         font-size: 0.75em;
         padding: 1em;
+    }
+}
+
+
+
+.typewriter {
+    white-space: pre;
+}
+
+.caret {
+    animation: blink 0.5s linear infinite;
+    color: #8bf;
+    margin-left: 0.05em;
+}
+
+.caret.done {
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caret {
+        animation: none;
     }
 }
